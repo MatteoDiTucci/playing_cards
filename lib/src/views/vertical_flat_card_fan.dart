@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/widgets.dart';
 
 /// This widget will array the passed in children in a vertical line.
@@ -21,12 +23,19 @@ class VerticalFlatCardFan extends StatelessWidget {
           alignment: Alignment(
             0,
             children.length > 1
-                ? -1.0 + (index / (children.length - 1)) * 2.0
+                ? -1.0 + offSet(index) * 2.0
                 : 0,
           ),
           child: children[index],
         ),
       ),
     );
+  }
+
+  // This is needed to avoid too sparse cards when there are too few
+  double offSet(int index) {
+    final dynamicOffset = (index / (children.length - 1));
+    final maxOffset = index * 0.1;
+    return min(dynamicOffset, maxOffset);
   }
 }
