@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
+import 'package:playing_cards/src/util/flat_card_uility.dart';
 
 /// This widget will array the passed in children in a horizontal line.
 /// The children will overlap such that the available space is filled
@@ -22,19 +21,12 @@ class FlatCardFan extends StatelessWidget {
             (index) =>
             Align(
               alignment: Alignment(
-                children.length > 1 ? -1.0 + offSet(index) * 2.0 : 0,
+                children.length > 1 ? -1.0 + offSet(index, children.length) * 2.0 : 0,
                 0,
               ),
               child: children[index],
             ),
       ),
     );
-  }
-
-  // This is needed to avoid too sparse cards when there are too few
-  double offSet(int index) {
-    final dynamicOffset = (index / (children.length - 1));
-    final maxOffset = index * 0.1;
-    return min(dynamicOffset, maxOffset);
   }
 }
