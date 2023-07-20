@@ -34,7 +34,7 @@ class FlatCardFan extends StatelessWidget {
   // Needed to avoid too sparse cards when there are too few
   double offSet(int index) {
     final dynamicOffset = (index / (children.length - 1));
-    final maxOffset = index * 0.2;
+    final maxOffset = index * 0.1;
     return min(dynamicOffset, maxOffset);
   }
 }
