@@ -20,7 +20,7 @@ class FlatCardFan extends StatelessWidget {
         (index) => Align(
           alignment: Alignment(
             children.length > 1
-                ? -1.0 + (index / (children.length - 1)) * 2.0
+                ? -1.0 + offset(index)
                 : 0,
             0,
           ),
@@ -28,5 +28,11 @@ class FlatCardFan extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // Needed to avoid too sparse cards when there are too few
+  double offset(int index) {
+    final offsetPerCard = 2 / children.length;
+    return offsetPerCard * index;
   }
 }
