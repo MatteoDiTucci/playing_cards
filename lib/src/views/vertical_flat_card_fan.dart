@@ -23,7 +23,7 @@ class VerticalFlatCardFan extends StatelessWidget {
             0,
             children.length > 1
                 ? -1.0 + offSet(index, children.length) * 2.0
-                : 0,
+                : -1,
           ),
           child: children[index],
         ),
