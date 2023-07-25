@@ -1,5 +1,6 @@
 /// Thirteen standard card ranks.
 enum CardValue {
+  ace,
   two,
   three,
   four,
@@ -12,13 +13,13 @@ enum CardValue {
   jack,
   queen,
   king,
-  ace,
   joker_1,
   joker_2,
 }
 
 // all CardValue values except CardValue.joker_1 and CardValue.joker_2.
 const SUITED_VALUES = [
+  CardValue.ace,
   CardValue.two,
   CardValue.three,
   CardValue.four,
@@ -31,7 +32,6 @@ const SUITED_VALUES = [
   CardValue.jack,
   CardValue.queen,
   CardValue.king,
-  CardValue.ace,
 ];
 
 const JOKER_VALUES = [
